@@ -1,0 +1,33 @@
+Q1.
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Project",
+  "type": "object",
+  "properties": {
+    "pno": {
+      "type": "string",
+      "description": "Project number"
+    },
+    "pname": {
+      "type": "string",
+      "description": "Project name"
+    },
+    "pduration": {
+      "type": "string",
+      "description": "Project duration"
+    },
+    "pbudget": {
+      "type": "integer",
+      "description": "Project budget"
+    }
+  },
+  "required": ["pno", "pname", "pduration", "pbudget"]
+}
+
+
+{
+  "pno": "1",
+  "pname": "Project A",
+  "pduration": "6 months",
+  "pbudget": "500000"
+}

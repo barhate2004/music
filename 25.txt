@@ -1,0 +1,26 @@
+Q1.
+<?php
+echo"server name :".$_SERVER['SERVER_NAME']."<br>";
+echo"server address :".$_SERVER['SERVER_ADDR']."<br>";
+echo"server software :".$_SERVER['SERVER_SOFTWARE']."<br>";
+echo"server protocol :".$_SERVER['SERVER_PRTOCOL']."<br>";
+echo"name of user :".$_SERVER['HTTP_USER_AGENT']."<br>";
+echo"get or post request :".$_SERVER['REQUEST_METHOD']."<br>";
+echo"NAME OF FILE :".$_SERVER['PHP_SELF']."<br>";
+?>
+
+
+
+
+Q2.
+<?php
+$fpp=fopen("xyz.txt","r");
+$str=fread($fpp,filesize("xyz.txt"));
+echo $str;
+
+$fp=fopen("abc.txt","a");
+echo fwrite($fp,"hello");
+
+fclose($fp);
+fclose($fpp)
+?>

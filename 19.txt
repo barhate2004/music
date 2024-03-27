@@ -1,0 +1,43 @@
+<?php
+$fp=fopen("kartik.txt","r");
+echo fread($fp,filesize("kartik.txt"));
+fclose($fp);
+?>
+___________________________________________________________________________
+Q2>Database>
+<html>
+    <form action="<?php echo $_SERVER['PHP_SELF']?>" method="get">
+    enter route number :<input type="text" name="txt1" value=""/><br>
+        <input type="submit" name="submit" value="submit"/>
+    </form>
+<?php
+
+$host="192.168.5.200";
+$db="bcasy44";
+$pass="";
+$user="bcasy44";
+$port="5432";
+$no=$_GET['txt1']
+$con=pg_connect("host=$host dbname=$db user=$user password=$pass") or die("couldnt connect");
+
+$query="select * from route where Route_no=$no";
+
+$rs=pg_query($con,$query);
+
+echo"<table border=1><th>route_no></th><th>Sourse</th><th>destination</th><th>no of station</tr>";
+
+
+while($col=pg_fetch_row($rs))
+{
+ echo"<tr>
+     <th>$col[0]</th>
+	<th>$col[1]</th>
+	<th>$col[2]</th>
+	<th>$col[3]</th></tr>";
+
+}
+echo"</table></body></html>";
+pg_close($con);
+
+?>
+

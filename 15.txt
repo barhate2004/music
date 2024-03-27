@@ -1,0 +1,28 @@
+Q2.
+<html>
+<body>
+<form action="doc.php" method="get">
+enter hospital name : <input type="txt" name="txt1"/><br>
+<input type="submit" value="get details" name="submit"/>
+
+</form>
+</body>
+</html>
+
+<?php    
+ $dirname=$_GET['txt1'];
+ $dirpath="/home/cslogin/bcasy44/sem4/web/".$dirname;
+ $files=Scandir($dirpath);
+ $count=0;
+ foreach($files as $file)
+ {
+  if(pathinfo($file,PATHINFO_EXTENSION)==txt)
+{
+  $count++;
+  echo $file."<br>";
+ }
+}
+echo"there are total $count number of text files";
+?>
+
+

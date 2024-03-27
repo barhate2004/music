@@ -1,0 +1,20 @@
+<html>
+    <form action="c100.php" method="get">
+       enter Username :  <input type="text" name="txt1"  value=""/><br>
+
+       <input type="submit" name="submit" value="set cookie"/>
+    </form>
+</html>
+
+<?php
+$name=$_GET['txt1'];
+if($name=="")
+{
+    echo "cokkie not set";
+}
+else
+{
+setcookie("uname",$name,time()+3600);
+echo "cokkie set successfully";
+}
+?>                

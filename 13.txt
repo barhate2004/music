@@ -1,0 +1,32 @@
+Q2.
+<html>
+<body>
+<form action="doc.php" method="get">
+enter hospital name : <input type="txt" name="txt1"/><br>
+<input type="submit" value="get details" name="submit"/>
+
+</form>
+</body>
+</html>
+
+
+<?php
+$host="192.168.5.200";
+$db="bcasy44";
+$pass="";
+$user="bcasy44";
+$port="5432";
+$name=$_GET['txt1'];
+$con=pg_connect("host=$host dbname=$db user=$user password=$pass");
+
+$query="select dname from doctor,hospital where doctor.hno=hospital.hno and hname='$name'";
+
+$rs=pg_query($con,$query);
+
+while($col=pg_fetch_row($rs))
+{
+ echo $col[0]."<br>";
+}
+pg_close($con);
+
+?>

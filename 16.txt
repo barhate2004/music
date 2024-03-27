@@ -1,0 +1,7 @@
+<?php
+$arr=array("violet","indigo","blue","red","orange","green","yellow");
+
+$jobj=json_encode($arr);
+print_r($jobj);
+?>
+_____________________________________________________

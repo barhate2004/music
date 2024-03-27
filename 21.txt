@@ -1,0 +1,39 @@
+Q2.
+<html>
+<body>
+<form action="b2.php" method=post>
+select colors<br>
+<input type=checkbox name="c[]" value="red"/>red<br>
+<input type=checkbox name="c[]" value="blue"/>blue<br>
+<input type=checkbox name="c[]" value="green"/>green<br>
+<input type=checkbox name="c[]" value="yellow"/>yellow<br>
+<br>
+<input type=submit name=submit value=submit />
+</form>
+</body>
+</html> 
+
+<html>
+<body>
+<form action="b22.php" method="POST">
+<?php
+$colors=$_POST['c'];
+
+if(isset($colors))
+{
+ setcookie("bcolor",$colors[0]);
+ setcookie("fcolor",$colors[1]);
+}
+
+ echo "entered colors are :<br>";
+ foreach($colors as $k=>$v)
+ {
+  echo"$v<br>";
+ }
+
+?>
+<br>
+<input type=submit value=apply name=submit />
+</form>
+</body>
+</html>

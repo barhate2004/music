@@ -1,0 +1,48 @@
+Q1.
+<html>
+    <body>
+        <form action="upload.php" method="post" encytpe="multipart/form-data">
+            select file : <input type="file" name="toupload"><br>
+            <input type="submit" name="submit" value="upload">
+
+        </form>
+    </body>
+</html>
+
+<?php
+$fname=$_FILES['toupload']['name'];
+
+echo "file type is ".pathinfo($fname,PATHINFO_EXTENSION);
+echo "file size is ".filesize($fname);
+
+$path="/home/cslogin/phpupload/".$fname;
+if(move_uploaded_file($_FILES['toupload']['tmp_name'],$path))
+echo "file uploaded successfully";
+else
+echo "upload failed";
+?>
+
+
+
+Q2.
+<html>
+    <form action="atime.php" method="get">
+       click to visit page <input type="submit" name="submit" value="submit"/>
+    </form>
+</html>
+
+<?php
+if(isset($_COOKIE['time']))
+{
+    $time=$_COOKIE['time'];
+    echo "last access time is ".$time;
+    $time=date("M d Y H:i:s",fileatime("atime.html"));
+    setcookie("time",$time);
+}
+else
+{
+    $time=date("M d Y H:s:i",fileatime("atime.html"));
+    setcookie("time",$time);
+    echo "welcome you visit for the first time";
+}
+?>

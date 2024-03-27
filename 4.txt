@@ -1,0 +1,17 @@
+Q1.
+{"book":{"bookno":123,"bookname":"pyhton","pubname":"ramdas","price":100}}
+
+{
+    "$schema":"http://json-schema.org/draft-04/schema#",
+    "description":"book",
+    "tittle":"book",
+    "type":"object",
+
+    "properties":{
+        "bookno":{"description":"unique","type":"integer"},
+         "bookname":{"description":"name","type":"string"},
+         "pubname":{"description":"publisher","type":"string"},
+         "price":{"description":"not null","type":"integer"},
+    },
+    "required":["bookno","price"]
+}

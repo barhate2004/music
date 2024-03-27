@@ -1,0 +1,24 @@
+Q1.
+<html>
+    <body>
+        <form action="<?php echo $_SERVER['PHP_SELF']?>" method="get">
+            enter number<input type="text" name="txt1" value=""/><br>
+            <input type="submit" name="submit" value="submit"/>
+
+        </form>
+        <?php
+        
+            if(isset($_GET['txt1']))
+            {
+                $n=$_GET['txt1'];
+                $fact=1;
+                while($n>1)
+                {
+                    $fact*=$n;
+                    $n--;
+                }
+                echo " factorial is ".$fact;
+            }
+        ?>
+        </body>
+        </html>

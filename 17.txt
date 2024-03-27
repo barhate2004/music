@@ -1,0 +1,26 @@
+[
+    {
+     "pizzaname":"margerita",
+      "base":"thin crust",
+      "topping":["mashroom","basil"],
+      "spicy":true,
+       "veg":false
+    },
+   
+    {
+     "pizzaname":"italian cheese",
+      "base":"thin crust",
+      "topping":["mozzarella cheese"],
+      "spicy":false,
+       "veg":true
+    },
+   
+    {
+     "pizzaname":"chicken spicy",
+      "base":"thin crust",
+      "topping":["tomato sauce","basil","olive"],
+      "spicy":true,
+       "veg":false
+    }
+   ]
+_____________________________________________________________________________________________

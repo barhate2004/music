@@ -1,0 +1,24 @@
+
+
+
+
+Q2.
+<html>
+    <form action="cookie.php" method="get">
+        <input type="submit" name="submit" value="submit"/>
+    </form>
+</html>
+
+<?php
+if(isset($_COOKIE['visit']))
+{
+    $n=$_COOKIE['visit']+1;
+    setcookie("visit",$n);
+    echo "you visit this page $n time";
+}
+else
+{
+   setcookie("visit",1);
+echo "Welcome you are visit for first time";
+}
+?>

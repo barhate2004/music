@@ -1,0 +1,48 @@
+Q1.
+{"person":{"firstname":"vrushali","lastname":"karlekar","age":21,"address":{"streetaddress":"kothrud","city":"pune","state":"maharashtra","postalcode":411038}}}
+
+
+
+
+Q2.<html>
+<body>
+<form action="emp2.php" method="get">
+enter salary : <input type="txt" name="txt1"/><br>
+<input type="submit" value="get details" name="submit"/>
+
+</form>
+</body>
+</html>
+
+<?php
+$host="192.168.5.200";
+$db="bcasy44";
+$pass="";
+$user="bcasy44";
+$port="5432";
+$salary=$_GET['txt1'];
+
+$con=pg_connect("host=$host dbname=$db user=$user password=$pass");
+
+$query="select * from employee where salary>$salary";
+echo "<html><body><table border=1>";
+
+echo"<tr>
+     <th>eid</th>
+	<th>name</th>
+	<th>salary</th></tr>";
+
+$rs=pg_query($con,$query);
+
+while($col=pg_fetch_row($rs))
+{
+ echo"<tr>
+     <th>$col[0]</th>
+	<th>$col[1]</th>
+	<th>$col[2]</th></tr>";
+
+}
+echo"</table></body></html>";
+pg_close($con);
+
+?>

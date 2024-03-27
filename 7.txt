@@ -1,0 +1,44 @@
+
+Q1>
+<html>
+    <body>
+    <form action="file.php" method="post">
+        enter file name<input type="text" name="txt1" value=""/>
+        <input type="submit" name="submit" value="check file is exist"/>
+        <form>
+
+<?php
+if(isset($_POST['txt1']))
+{
+    $f=$_POST['txt1'];
+
+if(file_exists($f))
+echo "file is exist";
+else
+echo "file is not exist";
+}
+?>
+</body>
+</html>
+___________________________________________________________________________________________
+Q2>
+<html>
+    <body>
+        <form action="<?php echo $_SERVER['PHP_SELF']?>" method="get">
+        enter name: <input type="text" name="txt1" value="<?php if(isset($_GET['txt1'])) echo $_GET['txt1'] ?>"/><br>
+        enter age: <input type="text" name="txt2" value="<?php if(isset($_GET['txt2'])) echo $_GET['txt2']?>"/><br>
+        enter email :<input type="text" name="txt3" value="<?php if(isset($_GET['txt3'])) echo $_GET['txt3']?>"/><br>
+        <input type="submit" name="submit" value="submit"/>
+</form>
+<?php
+if(isset($_GET['txt1']))
+{
+    $name=$_GET['txt1'];
+    $age=$_GET['txt2'];
+    $mail=$_GET['txt3'];
+
+    echo "name : ".$name.   " age : " .$age.   " mail: " .$mail;
+}
+?>
+</body>
+</html>

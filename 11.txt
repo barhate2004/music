@@ -1,0 +1,22 @@
+Q 2>
+<html>
+    <body>
+        <form action="access.php" method="get">
+            enter file name<input type="text" name="txt1" value=""/><br>
+            <input type="submit" name="submit" value="submit"/>
+
+        </form>
+
+        <?php
+       {
+         if(isset($_GET['txt1']))
+         {
+            $fname=$_GET['txt1'];
+            echo " last acces time of file is".date("M d Y H:i:s",fileatime($fname));
+         }
+       }
+       ?>
+       </body>
+       </html>
+__________________________________________________________________________________________
+Q 2 database

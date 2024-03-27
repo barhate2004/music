@@ -1,0 +1,49 @@
+Q1.
+<html>
+    <form action="age.php" method="get">
+        enter age :<input type="text" name="txt1" value=""/><br>
+        <input type="submit" name="submit" value="submit"/>
+    </form>
+</html>
+
+<?php
+$age=$_GET['txt1'];
+if($age<18)
+echo "enter age should be greater than 18";
+else
+echo "valid age";
+?>
+
+'
+Q2
+
+<html>
+<body>
+<form action="owner.php" method="get">
+enter owner name : <input type="txt" name="txt1"/><br>
+<input type="submit" value="get details" name="submit"/>
+
+</form>
+</body>
+</html>
+
+<?php
+$host="192.168.5.200";
+$db="bcasy44";
+$pass="";
+$user="bcasy44";
+$port="5432";
+$name=$_GET['txt1'];
+$con=pg_connect("host=$host dbname=$db user=$user password=$pass");
+
+$query="select area from property where oid=(select oid from owner where oname='$name')";
+
+$rs=pg_query($con,$query);
+
+while($col=pg_fetch_row($rs))
+{
+ echo $col[0]."<br>";
+}
+pg_close($con);
+
+?>

@@ -1,0 +1,15 @@
+<html>
+    <form action="username8.php" method="get">
+        enter username :<input type="text" name="txt1" value=""/><br>
+        <input type="submit" name="submit" value="submit"/>
+    </form>
+</html>
+
+<?php
+$name=$_GET['txt1'];
+$l=strlen($name);
+if($l<8)
+echo "username should be 8 character";
+else
+echo "valid username";
+?>

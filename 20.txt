@@ -1,0 +1,39 @@
+Q1.
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check Perfect Number</title>
+</head>
+<body>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <label for="number">Enter a number:</label>
+        <input type="number" id="number" name="number" required>
+        <input type="submit" name="submit" value="Check">
+    </form>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $number = $_POST["number"];
+        $isPerfect = false;
+        $sum = 1;
+        for ($i = 2; $i <= sqrt($number); $i++) {
+            if ($number % $i == 0) {
+                if ($i == sqrt($number)) {
+                    $sum += $i;
+                } else {
+                    $sum += $i;
+                    $sum += $number / $i;
+                }
+            }
+        }
+        if ($sum == $number) {
+            $isPerfect = true;
+        }
+        if ($isPerfect) {
+            echo "The number $number is a perfect number.";
+        } else {
+            echo "The number $number is not a perfect number.";
+        }
+    }
+    ?>
+</body>
+</html>
